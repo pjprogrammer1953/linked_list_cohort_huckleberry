@@ -8,6 +8,9 @@ class LinkedListTest < MiniTest::Unit::TestCase
     payload = "foo"
     ll.push(payload)
     assert_equal(payload, ll.get(0))
+#    puts "test_05a_push_get"
+#    puts payload
+#    puts ll.get(0)
   end
 
   def test_05b_push_get
@@ -15,12 +18,19 @@ class LinkedListTest < MiniTest::Unit::TestCase
     ll.push("foo")
     ll.push("bar")
     assert_equal("foo", ll.get(0))
+#   puts "test_05b_push_get"
+#    puts "foo"
+#    puts ll.get(0)
   end
 
   def test_05c_push_get
+    puts "test_05c_push_get"
     ll = LinkedList.new
     ll.push("foo")
+    puts "pushed value = foo"
     ll.push("bar")
+    puts "pushed value = bar"
+#    puts ll.get(1)
     assert_equal("bar", ll.get(1))
   end
 
@@ -31,13 +41,19 @@ class LinkedListTest < MiniTest::Unit::TestCase
     ll.push("grille")
     ll.push("zoo")
     assert_equal("grille", ll.get(2))
+#    puts "test_05d_add_multiple_items_get"
+#    puts "grille"
+#    puts ll.get(2)
   end
 
   def test_06a_get_negative_index_raises_index_error
     ll = LinkedList.new("a")
+    ll.push("a")
     assert_raises IndexError do
-      ll.get(-1)
+    ll.get(-1)
     end
+#    puts "test_06a_get_negative_index_raises_index_error"
+#    puts ll.get(-1)
   end
 
   def test_06b_get_that_doesnt_exist
@@ -45,6 +61,8 @@ class LinkedListTest < MiniTest::Unit::TestCase
     assert_raises IndexError do
       ll.get(1)
     end
+#    puts "test_06b_get_that_doesnt_exist"
+#    puts ll.get(1)
   end
 
   def test_06c_get_that_doesnt_exist
@@ -53,10 +71,14 @@ class LinkedListTest < MiniTest::Unit::TestCase
     assert_raises IndexError do
       ll.get(2)
     end
+#    puts "test_06c_get_that_doesnt_exist"
+#    puts ll.get(2)
   end
 
   def test_07a_new_list_size_is_0
     assert_equal(0, LinkedList.new.size)
+#    puts "test_07a_new_list_size_is_0"
+#    puts LinkedList.new.size
   end
 
   def test_07b_list_size
@@ -65,40 +87,53 @@ class LinkedListTest < MiniTest::Unit::TestCase
     ll.push("bar")
     ll.push("grille")
     assert_equal( 3, ll.size)
+#    puts "test_07b_list_size"
+#    puts ll.size
   end
 
   def test_07c_list_size
+#    puts "test_07c_list_size"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
     assert_equal( 2, ll.size)
+#    puts ll.size
+#    puts ll.last
   end
 
   def test_08a_last_item_for_an_empty_list
+#    puts "test_08a_last_item_for_an_empty_list"
     ll = LinkedList.new
     assert_equal(nil, ll.last)
+#    puts ll.last
   end
 
   def test_08b_last_item_for_a_list_with_items
+    puts "test_08b_last_item_for_a_list_with_items"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
     ll.push("grille")
     assert_equal("grille", ll.last)
+    puts ll.size
+    puts ll.last
   end
 
   def test_09a_to_s_an_empty_linked_list
+    puts "test_09a_to_s_an_empty_linked_list"
     ll = LinkedList.new
     assert_equal("| |", ll.to_s)
   end
 
   def test_09b_to_s_a_single_item_list
+    puts ""
     ll = LinkedList.new
     ll.push("foo")
     assert_equal('| foo |', ll.to_s)
   end
 
   def test_09c_to_s_a_long_list
+    puts "test_09b_to_s_a_single_item_list"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
@@ -106,19 +141,22 @@ class LinkedListTest < MiniTest::Unit::TestCase
     assert_equal '| foo, bar, grille |', ll.to_s
   end
 
-  # ========= Bonus ========== #
+#  ========= Bonus ========== #
 
   def test_10a_initialize_takes_seed_argument
+    puts "test_10a_initialize_takes_seed_argument"
     ll = LinkedList.new("foo")
     assert_equal "| foo |", ll.to_s
   end
 
   def test_10b_initialize_takes_seed_arguments
+    puts "test_10b_initialize_takes_seed_arguments"
     ll = LinkedList.new("foo", "bar", "grille")
     assert_equal '| foo, bar, grille |', ll.to_s
   end
 
   def test_11_bracket_accessor
+    puts "test_11_bracket_accessor"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
@@ -127,12 +165,14 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_12a_bracket_assignment
+    puts "test_12a_bracket_assignment"
     ll = LinkedList.new("foo", "bar", "grille")
     ll[1] = "bar-be-que"
     assert_equal("bar-be-que", ll[1])
   end
 
   def test_12b_bracket_assignment_results
+    puts "test_12b_bracket_assignment_results"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
@@ -142,6 +182,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_13a_delete_item_changes_size
+    puts "test_13a_delete_item_changes_size"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
@@ -152,6 +193,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_13b_delete_item_deletes_correct_item
+    puts "test_13b_delete_item_deletes_correct_item"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
@@ -162,6 +204,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_13c_delete_item_from_beginning_of_list
+    puts "test_13c_delete_item_from_beginning_of_list"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
@@ -172,6 +215,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_13d_delete_item_from_middle_of_list
+    puts "test_13d_delete_item_from_middle_of_list"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
@@ -184,6 +228,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_13e_delete_item_from_end_of_list
+    puts "test_13e_delete_item_from_end_of_list"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
@@ -196,6 +241,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_13f_delete_item_that_doesnt_exist
+    puts "test_13f_delete_item_that_doesnt_exist"
     ll = LinkedList.new
     assert_raises IndexError do
       ll.delete(1)
@@ -205,6 +251,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   # ========= Index exercise ========== #
 
   def test_14a_index_of_first_item
+    puts "test_14a_index_of_first_item"
     ll = LinkedList.new()
     ll.push("foo")
     ll.push("bar")
@@ -213,6 +260,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_14b_index_of_middle_item
+    puts "test_14b_index_of_middle_item"
     ll = LinkedList.new()
     ll.push("foo")
     ll.push("bar")
@@ -221,6 +269,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_14c_index_of_last_item
+    puts "test_14c_index_of_last_item"
     ll = LinkedList.new()
     ll.push("foo")
     ll.push("bar")
@@ -229,6 +278,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_14d_index_of_last_item
+    puts "test_14d_index_of_last_item"
     ll = LinkedList.new()
     ll.push("foo")
     ll.push("bar")
@@ -237,11 +287,13 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_14e_index_of_last_item
+    puts "test_14e_index_of_last_item"
     ll = LinkedList.new()
     assert_equal(nil, ll.index("terrible"))
   end
 
   def test_14f_index_of_duplicate
+    puts "test_14f_index_of_duplicate"
     ll = LinkedList.new()
     ll.push("foo")
     ll.push("foo")
@@ -250,6 +302,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_14g_index_of_empty_list
+    puts "test_14g_index_of_empty_list"
     ll = LinkedList.new()
     assert_equal(nil, ll.index("foo"))
   end

@@ -5,13 +5,13 @@ class LinkedListItemTest < MiniTest::Unit::TestCase
 
   def test_00a_triple_equals
     lli = LinkedListItem.new("foo")
-    assert lli === lli
+    assert lli == lli
   end
 
   def test_00b_triple_equals
     lli1 = LinkedListItem.new("foo")
     lli2 = LinkedListItem.new("foo")
-    assert !(lli1 === lli2)
+    assert lli1 == lli2
   end
 
   def test_01_item_stores_payload
@@ -34,14 +34,18 @@ class LinkedListItemTest < MiniTest::Unit::TestCase
   end
 
   def test_03a_last_is_true_if_item_is_last
+    puts "test_03a_last_is_true_if_item_is_last"
     lli = LinkedListItem.new("foo")
     assert_equal true, lli.last?
+    puts lli.last
   end
 
   def test_03b_last_is_false_if_item_is_not_last
+    puts "test_03b_last_is_false_if_item_is_not_last"
     lli = LinkedListItem.new("foo")
     lli.next_item = LinkedListItem.new("bar")
     assert_equal false, lli.last?
+    puts lli.last
   end
 
   def test_04a_comparator_greater_than
@@ -56,7 +60,7 @@ class LinkedListItemTest < MiniTest::Unit::TestCase
     assert lli1 == lli2
   end
 
-  def test_04c_comparator_lesser_than
+  def test_04c_comparator_less_than
     lli1 = LinkedListItem.new("foo")
     lli2 = LinkedListItem.new("bar")
     assert lli2 < lli1
@@ -75,4 +79,5 @@ class LinkedListItemTest < MiniTest::Unit::TestCase
     assert lli1 < lli2
     assert lli2 > lli1
   end
+
 end

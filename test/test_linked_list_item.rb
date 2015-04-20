@@ -34,18 +34,18 @@ class LinkedListItemTest < MiniTest::Unit::TestCase
   end
 
   def test_03a_last_is_true_if_item_is_last
-    puts "test_03a_last_is_true_if_item_is_last"
+#    puts "test_03a_last_is_true_if_item_is_last"
     lli = LinkedListItem.new("foo")
     assert_equal true, lli.last?
-    puts lli.last
+#    puts lli.last
   end
 
   def test_03b_last_is_false_if_item_is_not_last
-    puts "test_03b_last_is_false_if_item_is_not_last"
+#    puts "test_03b_last_is_false_if_item_is_not_last"
     lli = LinkedListItem.new("foo")
     lli.next_item = LinkedListItem.new("bar")
     assert_equal false, lli.last?
-    puts lli.last
+#    puts lli.last
   end
 
   def test_04a_comparator_greater_than

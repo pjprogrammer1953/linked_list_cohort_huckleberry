@@ -5,7 +5,12 @@ class LinkedListItem
 
   def initialize(data)
     @payload = data
-  #  @next_item = next_item
+  end
+
+  def last
+    unless @last_item.nil?
+      @last_item.payload
+    end
   end
 
   def last?
@@ -17,12 +22,6 @@ class LinkedListItem
       raise ArgumentError
     else
       @next_item = nextItem
-    end
-  end
-
-  def last
-    unless @last_item.nil?
-      @last_item.payload
     end
   end
 

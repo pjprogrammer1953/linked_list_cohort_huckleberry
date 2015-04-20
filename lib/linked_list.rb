@@ -13,9 +13,30 @@ class LinkedList
     end
   end
 
+  def last
+    if @last_item.nil?
+      return
+    else
+      @last_item.payload
+    end
+  end
+
+ # def to_s
+ #   str = "| "
+ #   current_item = @first_item
+ ###   until current_item.nil?
+ #     str << current_item.payload
+ #     punctuation = current_item.last? ? " " : ", "
+ #     str << punctuation
+ #     current_item = current_item.next_item
+ #   end
+ #   str << "|"
+ #   str
+ # end
+
   def get(index)
-    puts "def get(index)"
-    puts index
+#    puts "def get(index)"
+#    puts index
     if index < 0 or index > @size
       raise IndexError
     elsif index == 0
@@ -25,6 +46,7 @@ class LinkedList
       index.times do
         current_node = current_node.next_item
       end
+# return current_node.payload
       current_node.payload
     end
   end
@@ -33,8 +55,8 @@ class LinkedList
 
   def push(payload)
     new_item = LinkedListItem.new(payload)
-    puts "def push(payload)"
-    puts new_item
+#    puts "def push(payload)"
+#    puts new_item
     if @first_item.nil?
       @first_item = new_item
       @last_item = new_item
@@ -42,7 +64,7 @@ class LinkedList
       @last_item.next_item = new_item
       @last_item = @last_item.next_item
     end
-    puts @last_item
+#    puts @last_item
     @size += 1
 
   end

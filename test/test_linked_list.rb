@@ -109,7 +109,6 @@ class LinkedListTest < MiniTest::Unit::TestCase
 #    puts "test_08a_last_item_for_an_empty_list"
     ll = LinkedList.new
     assert_equal(nil, ll.last)
-#    puts ll.last
   end
 
   def test_08b_last_item_for_a_list_with_items
@@ -119,7 +118,6 @@ class LinkedListTest < MiniTest::Unit::TestCase
     ll.push("bar")
     ll.push("grille")
     assert_equal("grille", ll.last)
-    puts ll.size
     puts ll.last
   end
 
@@ -130,7 +128,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_09b_to_s_a_single_item_list
-    puts ""
+    puts "test_09b_to_s_a_single_item_list"
     ll = LinkedList.new
     ll.push("foo")
     assert_equal('| foo |', ll.to_s)

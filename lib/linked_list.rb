@@ -21,18 +21,19 @@ class LinkedList
     end
   end
 
- # def to_s
- #   str = "| "
- #   current_item = @first_item
- ###   until current_item.nil?
- #     str << current_item.payload
- #     punctuation = current_item.last? ? " " : ", "
- #     str << punctuation
- #     current_item = current_item.next_item
- #   end
- #   str << "|"
- #   str
- # end
+# Test 09 & 10
+  def to_s
+    str = "| "
+    current_item = @first_item
+      until current_item.nil?
+      str << current_item.payload
+      punctuation = current_item.last? ? " " : ", "
+      str << punctuation
+      current_item = current_item.next_item
+    end
+    str << "|"
+    str
+  end
 
   def get(index)
 #    puts "def get(index)"

@@ -112,19 +112,20 @@ class LinkedListTest < MiniTest::Unit::TestCase
   end
 
   def test_08b_last_item_for_a_list_with_items
-    puts "test_08b_last_item_for_a_list_with_items"
+#    puts "test_08b_last_item_for_a_list_with_items"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
     ll.push("grille")
     assert_equal("grille", ll.last)
-    puts ll.last
+#    puts ll.last
   end
 
   def test_09a_to_s_an_empty_linked_list
     puts "test_09a_to_s_an_empty_linked_list"
     ll = LinkedList.new
     assert_equal("| |", ll.to_s)
+    puts ll.to_s
   end
 
   def test_09b_to_s_a_single_item_list
@@ -132,15 +133,17 @@ class LinkedListTest < MiniTest::Unit::TestCase
     ll = LinkedList.new
     ll.push("foo")
     assert_equal('| foo |', ll.to_s)
+    puts ll.to_s
   end
 
   def test_09c_to_s_a_long_list
-    puts "test_09b_to_s_a_single_item_list"
+    puts "test_09c_to_s_a_long_list"
     ll = LinkedList.new
     ll.push("foo")
     ll.push("bar")
     ll.push("grille")
     assert_equal '| foo, bar, grille |', ll.to_s
+    puts ll.to_s
   end
 
 #  ========= Bonus ========== #
@@ -149,12 +152,14 @@ class LinkedListTest < MiniTest::Unit::TestCase
     puts "test_10a_initialize_takes_seed_argument"
     ll = LinkedList.new("foo")
     assert_equal "| foo |", ll.to_s
+    puts ll.to_s
   end
 
   def test_10b_initialize_takes_seed_arguments
     puts "test_10b_initialize_takes_seed_arguments"
     ll = LinkedList.new("foo", "bar", "grille")
     assert_equal '| foo, bar, grille |', ll.to_s
+    puts ll.to_s
   end
 
   def test_11_bracket_accessor

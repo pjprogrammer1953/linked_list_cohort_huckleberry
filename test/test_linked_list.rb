@@ -18,20 +18,24 @@ class LinkedListTest < MiniTest::Unit::TestCase
     ll.push("foo")
     ll.push("bar")
     assert_equal("foo", ll.get(0))
-#   puts "test_05b_push_get"
+#    puts "test_05b_push_get"
+#    puts "bar"
+#    puts ll.get(1)
 #    puts "foo"
 #    puts ll.get(0)
   end
 
   def test_05c_push_get
-    puts "test_05c_push_get"
+#    puts "test_05c_push_get"
     ll = LinkedList.new
     ll.push("foo")
-    puts "pushed value = foo"
+#    puts "pushed value = foo"
     ll.push("bar")
-    puts "pushed value = bar"
+#    puts "pushed value = bar"
 #    puts ll.get(1)
     assert_equal("bar", ll.get(1))
+#    puts ll.get(0)
+#    assert_equal("foo", ll.get(0))
   end
 
   def test_05d_add_multiple_items_get
